@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine 💖</title>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background: linear-gradient(135deg, #ff9a9e, #fecfef);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+        text-align: center;
+    }
+
+    h1 {
+        color: white;
+        font-size: 32px;
+        margin-bottom: 15px;
+    }
+
+    img {
+        width: 220px;
+        margin-bottom: 20px;
+        transition: 0.3s ease;
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        position: absolute;
+        transition: 0.3s;
+    }
+
+    #yesBtn {
+        background: #ff4081;
+        color: white;
+        left: 40%;
+        top: 70%;
+    }
+
+    #noBtn {
+        background: #333;
+        color: white;
+        left: 55%;
+        top: 70%;
+    }
+
+    #message {
+        position: absolute;
+        bottom: 40px;
+        font-size: 24px;
+        color: white;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+
+<h1 id="title">Will You Be My Valentine? 💘</h1>
+
+<img id="catImage" 
+src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" 
+alt="cute cat">
+
+<button id="yesBtn">Yes 💖</button>
+<button id="noBtn">No 😢</button>
+
+<div id="message"></div>
+
+<script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const message = document.getElementById("message");
+    const catImage = document.getElementById("catImage");
+    const title = document.getElementById("title");
+
+    // No button runs away
+    noBtn.addEventListener("click", function() {
+        const maxX = window.innerWidth - noBtn.offsetWidth;
+        const maxY = window.innerHeight - noBtn.offsetHeight;
+
+        const randomX = Math.random() * maxX;
+        const randomY = Math.random() * maxY;
+
+        noBtn.style.left = randomX + "px";
+        noBtn.style.top = randomY + "px";
+    });
+
+    // YES button changes everything
+    yesBtn.addEventListener("click", function() {
+
+        // Change GIF to happy love cat
+        catImage.src = "https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif";
+
+        // Change title text
+        title.innerHTML = "YAAAY!! You Said YES!! 💖😻";
+
+    
+
+        // Hide buttons
+        yesBtn.style.display = "none";
+        noBtn.style.display = "none";
+    });
+</script>
+
+</body>
+</html>
